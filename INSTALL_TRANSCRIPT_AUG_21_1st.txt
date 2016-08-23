@@ -1,0 +1,1232 @@
+➜  sdr-linari brew install fftw
+Warning: fftw-3.3.4_1 already installed
+➜  sdr-linari brew install cmake
+==> Downloading https://homebrew.bintray.com/bottles/cmake-3.5.2.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring cmake-3.5.2.el_capitan.bottle.1.tar.gz
+==> Caveats
+Emacs Lisp files have been installed to:
+  /usr/local/share/emacs/site-lisp/cmake
+==> Summary
+🍺  /usr/local/Cellar/cmake/3.5.2: 2,010 files, 27.5M
+➜  sdr-linari brew install libusb
+
+==> Downloading https://homebrew.bintray.com/bottles/libusb-1.0.20.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libusb-1.0.20.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libusb/1.0.20: 12 files, 294.3K
+➜  sdr-linari brew install pkgconfig
+Warning: pkg-config-0.29.1 already installed
+➜  sdr-linari brew install sox
+==> Installing dependencies for sox: libpng, mad
+==> Installing sox dependency: libpng
+==> Downloading https://homebrew.bintray.com/bottles/libpng-1.6.23.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libpng-1.6.23.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libpng/1.6.23: 25 files, 1.2M
+==> Installing sox dependency: mad
+==> Downloading https://homebrew.bintray.com/bottles/mad-0.15.1b.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring mad-0.15.1b.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/mad/0.15.1b: 12 files, 325.0K
+==> Installing sox
+==> Downloading https://homebrew.bintray.com/bottles/sox-14.4.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring sox-14.4.2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/sox/14.4.2: 22 files, 1.7M
+➜  sdr-linari git clone git://git.osmocom.org/rtl-sdr.git
+Cloning into 'rtl-sdr'...
+remote: Counting objects: 1617, done.
+remote: Compressing objects: 100% (711/711), done.
+remote: Total 1617 (delta 1182), reused 1213 (delta 898)
+Receiving objects: 100% (1617/1617), 345.90 KiB | 213.00 KiB/s, done.
+Resolving deltas: 100% (1182/1182), done.
+Checking connectivity... done.
+➜  sdr-linari cd rtl-sdr/
+➜  rtl-sdr git:(master) mkdir build
+➜  rtl-sdr git:(master) cd build/
+➜  build git:(master) cmake ../
+-- The C compiler identification is AppleClang 7.3.0.7030031
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Build type not specified: defaulting to release.
+-- Extracting version information from git describe...
+-- Found PkgConfig: /usr/local/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'libusb-1.0'
+--   Found libusb-1.0, version 1.0.20
+-- Looking for libusb_handle_events_timeout_completed
+-- Looking for libusb_handle_events_timeout_completed - found
+-- Looking for libusb_error_name
+-- Looking for libusb_error_name - found
+-- Found libusb-1.0: /usr/local/Cellar/libusb/1.0.20/include/libusb-1.0, /usr/local/lib/libusb-1.0.dylib
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Udev rules not being installed, install them with -DINSTALL_UDEV_RULES=ON
+-- Building with kernel driver detaching disabled, use -DDETACH_KERNEL_DRIVER=ON to enable
+-- Building for version: v0.5.3-12-ge3c0 / 0.5git
+-- Using install prefix: /usr/local
+-- Configuring done
+CMake Warning (dev):
+  Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+  --help-policy CMP0042" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  MACOSX_RPATH is not specified for the following targets:
+
+   rtlsdr_shared
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/rtl-sdr/build
+➜  build git:(master) make
+Scanning dependencies of target rtlsdr_shared
+[  3%] Building C object src/CMakeFiles/rtlsdr_shared.dir/librtlsdr.c.o
+[  6%] Building C object src/CMakeFiles/rtlsdr_shared.dir/tuner_e4k.c.o
+[ 10%] Building C object src/CMakeFiles/rtlsdr_shared.dir/tuner_fc0012.c.o
+[ 13%] Building C object src/CMakeFiles/rtlsdr_shared.dir/tuner_fc0013.c.o
+[ 16%] Building C object src/CMakeFiles/rtlsdr_shared.dir/tuner_fc2580.c.o
+[ 20%] Building C object src/CMakeFiles/rtlsdr_shared.dir/tuner_r82xx.c.o
+[ 23%] Linking C shared library librtlsdr.dylib
+[ 23%] Built target rtlsdr_shared
+Scanning dependencies of target convenience_static
+[ 26%] Building C object src/CMakeFiles/convenience_static.dir/convenience/convenience.c.o
+[ 30%] Linking C static library libconvenience_static.a
+[ 30%] Built target convenience_static
+Scanning dependencies of target rtl_test
+[ 33%] Building C object src/CMakeFiles/rtl_test.dir/rtl_test.c.o
+[ 36%] Linking C executable rtl_test
+[ 36%] Built target rtl_test
+Scanning dependencies of target rtl_power
+[ 40%] Building C object src/CMakeFiles/rtl_power.dir/rtl_power.c.o
+[ 43%] Linking C executable rtl_power
+[ 43%] Built target rtl_power
+Scanning dependencies of target rtl_adsb
+[ 46%] Building C object src/CMakeFiles/rtl_adsb.dir/rtl_adsb.c.o
+[ 50%] Linking C executable rtl_adsb
+[ 50%] Built target rtl_adsb
+Scanning dependencies of target rtl_eeprom
+[ 53%] Building C object src/CMakeFiles/rtl_eeprom.dir/rtl_eeprom.c.o
+[ 56%] Linking C executable rtl_eeprom
+[ 56%] Built target rtl_eeprom
+Scanning dependencies of target rtl_tcp
+[ 60%] Building C object src/CMakeFiles/rtl_tcp.dir/rtl_tcp.c.o
+[ 63%] Linking C executable rtl_tcp
+[ 63%] Built target rtl_tcp
+Scanning dependencies of target rtl_fm
+[ 66%] Building C object src/CMakeFiles/rtl_fm.dir/rtl_fm.c.o
+/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/rtl-sdr/src/rtl_fm.c:505:31: warning: shifting a negative signed value is undefined
+      [-Wshift-negative-value]
+                return (cj > 0) ? 1<<13 : -1<<13;
+                                          ~~^
+1 warning generated.
+[ 70%] Linking C executable rtl_fm
+[ 70%] Built target rtl_fm
+Scanning dependencies of target rtlsdr_static
+[ 73%] Building C object src/CMakeFiles/rtlsdr_static.dir/librtlsdr.c.o
+[ 76%] Building C object src/CMakeFiles/rtlsdr_static.dir/tuner_e4k.c.o
+[ 80%] Building C object src/CMakeFiles/rtlsdr_static.dir/tuner_fc0012.c.o
+[ 83%] Building C object src/CMakeFiles/rtlsdr_static.dir/tuner_fc0013.c.o
+[ 86%] Building C object src/CMakeFiles/rtlsdr_static.dir/tuner_fc2580.c.o
+[ 90%] Building C object src/CMakeFiles/rtlsdr_static.dir/tuner_r82xx.c.o
+[ 93%] Linking C static library librtlsdr.a
+[ 93%] Built target rtlsdr_static
+Scanning dependencies of target rtl_sdr
+[ 96%] Building C object src/CMakeFiles/rtl_sdr.dir/rtl_sdr.c.o
+[100%] Linking C executable rtl_sdr
+[100%] Built target rtl_sdr
+➜  build git:(master) ✗ sudo make install
+Password:
+[ 23%] Built target rtlsdr_shared
+[ 30%] Built target convenience_static
+[ 36%] Built target rtl_test
+[ 43%] Built target rtl_power
+[ 50%] Built target rtl_adsb
+[ 56%] Built target rtl_eeprom
+[ 63%] Built target rtl_tcp
+[ 70%] Built target rtl_fm
+[ 93%] Built target rtlsdr_static
+[100%] Built target rtl_sdr
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /usr/local/lib/pkgconfig/librtlsdr.pc
+-- Installing: /usr/local/include/rtl-sdr.h
+-- Installing: /usr/local/include/rtl-sdr_export.h
+-- Installing: /usr/local/lib/librtlsdr.0.5git.dylib
+-- Installing: /usr/local/lib/librtlsdr.0.dylib
+-- Installing: /usr/local/lib/librtlsdr.dylib
+-- Installing: /usr/local/lib/librtlsdr.a
+-- Installing: /usr/local/bin/rtl_sdr
+-- Installing: /usr/local/bin/rtl_tcp
+-- Installing: /usr/local/bin/rtl_test
+-- Installing: /usr/local/bin/rtl_fm
+-- Installing: /usr/local/bin/rtl_eeprom
+-- Installing: /usr/local/bin/rtl_adsb
+-- Installing: /usr/local/bin/rtl_power
+➜  build git:(master) ✗ rtl_test -t
+Found 1 device(s):
+  0:  Realtek, RTL2838UHIDIR, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+usb_claim_interface error -3
+Failed to open rtlsdr device #0.
+➜  build git:(master) ✗ rtl_test -t
+Found 1 device(s):
+  0:  Realtek, RTL2838UHIDIR, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+Found Rafael Micro R820T tuner
+Supported gain values (29): 0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7 20.7 22.9 25.4 28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 
+[R82XX] PLL not locked!
+Sampling at 2048000 S/s.
+No E4000 tuner found, aborting.
+➜  build git:(master) ✗ brew install gnuradio
+==> Installing dependencies for gnuradio: sqlite, gdbm, python, boost, cppunit, gsl, zeromq, gettext, libffi, glib, jpeg, libtiff, freetype
+==> Installing gnuradio dependency: sqlite
+==> Downloading https://homebrew.bintray.com/bottles/sqlite-3.13.0.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring sqlite-3.13.0.el_capitan.bottle.tar.gz
+==> Caveats
+This formula is keg-only, which means it was not symlinked into /usr/local.
+
+OS X provides an older sqlite3.
+
+Generally there are no consequences of this for you. If you build your
+own software and it requires this formula, you'll need to add to your
+build variables:
+
+    LDFLAGS:  -L/usr/local/opt/sqlite/lib
+    CPPFLAGS: -I/usr/local/opt/sqlite/include
+
+==> Summary
+🍺  /usr/local/Cellar/sqlite/3.13.0: 10 files, 2.9M
+==> Installing gnuradio dependency: gdbm
+==> Downloading https://homebrew.bintray.com/bottles/gdbm-1.12.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring gdbm-1.12.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/gdbm/1.12: 18 files, 490.7K
+==> Installing gnuradio dependency: python
+==> Downloading https://homebrew.bintray.com/bottles/python-2.7.11.el_capitan.bottle.3.tar.gz
+######################################################################## 100.0%
+==> Pouring python-2.7.11.el_capitan.bottle.3.tar.gz
+==> /usr/local/Cellar/python/2.7.11/bin/python -s setup.py --no-user-cfg install --force --verbose --single-version-externally-managed --record=in
+==> /usr/local/Cellar/python/2.7.11/bin/python -s setup.py --no-user-cfg install --force --verbose --single-version-externally-managed --record=in
+==> /usr/local/Cellar/python/2.7.11/bin/python -s setup.py --no-user-cfg install --force --verbose --single-version-externally-managed --record=in
+==> Caveats
+Pip and setuptools have been installed. To update them
+  pip install --upgrade pip setuptools
+
+You can install Python packages with
+  pip install <package>
+
+They will install into the site-package directory
+  /usr/local/lib/python2.7/site-packages
+
+See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+
+.app bundles were installed.
+Run `brew linkapps python` to symlink these to /Applications.
+==> Summary
+🍺  /usr/local/Cellar/python/2.7.11: 4,949 files, 66.6M
+==> Installing gnuradio dependency: boost
+==> Downloading https://homebrew.bintray.com/bottles/boost-1.60.0_2.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring boost-1.60.0_2.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/boost/1.60.0_2: 11,139 files, 434.0M
+==> Installing gnuradio dependency: cppunit
+==> Downloading https://homebrew.bintray.com/bottles/cppunit-1.13.2.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring cppunit-1.13.2.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/cppunit/1.13.2: 94 files, 1.2M
+==> Installing gnuradio dependency: gsl
+==> Downloading https://homebrew.bintray.com/bottles/gsl-1.16.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring gsl-1.16.el_capitan.bottle.2.tar.gz
+🍺  /usr/local/Cellar/gsl/1.16: 247 files, 7.7M
+==> Installing gnuradio dependency: zeromq
+==> Downloading https://homebrew.bintray.com/bottles/zeromq-4.1.4.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring zeromq-4.1.4.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/zeromq/4.1.4: 64 files, 3.2M
+==> Installing gnuradio dependency: gettext
+==> Downloading https://homebrew.bintray.com/bottles/gettext-0.19.8.1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring gettext-0.19.8.1.el_capitan.bottle.tar.gz
+==> Caveats
+This formula is keg-only, which means it was not symlinked into /usr/local.
+
+OS X provides the BSD gettext library and some software gets confused if both are in the library path.
+
+Generally there are no consequences of this for you. If you build your
+own software and it requires this formula, you'll need to add to your
+build variables:
+
+    LDFLAGS:  -L/usr/local/opt/gettext/lib
+    CPPFLAGS: -I/usr/local/opt/gettext/include
+
+==> Summary
+🍺  /usr/local/Cellar/gettext/0.19.8.1: 1,934 files, 16.9M
+==> Installing gnuradio dependency: libffi
+==> Downloading https://homebrew.bintray.com/bottles/libffi-3.0.13.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libffi-3.0.13.el_capitan.bottle.tar.gz
+==> Caveats
+This formula is keg-only, which means it was not symlinked into /usr/local.
+
+Some formulae require a newer version of libffi.
+
+Generally there are no consequences of this for you. If you build your
+own software and it requires this formula, you'll need to add to your
+build variables:
+
+    LDFLAGS:  -L/usr/local/opt/libffi/lib
+
+==> Summary
+🍺  /usr/local/Cellar/libffi/3.0.13: 15 files, 374.6K
+==> Installing gnuradio dependency: glib
+==> Downloading https://homebrew.bintray.com/bottles/glib-2.46.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring glib-2.46.2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/glib/2.46.2: 426 files, 22.4M
+==> Installing gnuradio dependency: jpeg
+==> Downloading https://homebrew.bintray.com/bottles/jpeg-8d.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring jpeg-8d.el_capitan.bottle.2.tar.gz
+🍺  /usr/local/Cellar/jpeg/8d: 19 files, 713.7K
+==> Installing gnuradio dependency: libtiff
+==> Downloading https://homebrew.bintray.com/bottles/libtiff-4.0.6_1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libtiff-4.0.6_1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libtiff/4.0.6_1: 261 files, 3.4M
+==> Installing gnuradio dependency: freetype
+==> Downloading https://homebrew.bintray.com/bottles/freetype-2.6.3.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring freetype-2.6.3.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/freetype/2.6.3: 61 files, 2.5M
+==> Installing gnuradio dependency: fontconfig
+==> Downloading https://homebrew.bintray.com/bottles/fontconfig-2.11.1_2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring fontconfig-2.11.1_2.el_capitan.bottle.tar.gz
+==> Regenerating font cache, this may take a while
+==> /usr/local/Cellar/fontconfig/2.11.1_2/bin/fc-cache -frv
+🍺  /usr/local/Cellar/fontconfig/2.11.1_2: 450 files, 2.9M
+==> Installing gnuradio dependency: pixman
+==> Downloading https://homebrew.bintray.com/bottles/pixman-0.34.0.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring pixman-0.34.0.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/pixman/0.34.0: 12 files, 1.2M
+==> Installing gnuradio dependency: cairo
+==> Downloading https://homebrew.bintray.com/bottles/cairo-1.14.6_1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring cairo-1.14.6_1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/cairo/1.14.6_1: 118 files, 5.9M
+==> Installing gnuradio dependency: gobject-introspection
+==> Downloading https://homebrew.bintray.com/bottles/gobject-introspection-1.46.0_1.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring gobject-introspection-1.46.0_1.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/gobject-introspection/1.46.0_1: 199 files, 9.7M
+==> Installing gnuradio dependency: gdk-pixbuf
+==> Downloading https://homebrew.bintray.com/bottles/gdk-pixbuf-2.32.3.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring gdk-pixbuf-2.32.3.el_capitan.bottle.2.tar.gz
+==> /usr/local/Cellar/gdk-pixbuf/2.32.3/bin/gdk-pixbuf-query-loaders --update-cache
+🍺  /usr/local/Cellar/gdk-pixbuf/2.32.3: 220 files, 4.3M
+==> Installing gnuradio dependency: atk
+==> Downloading https://homebrew.bintray.com/bottles/atk-2.18.0_1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring atk-2.18.0_1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/atk/2.18.0_1: 205 files, 3.2M
+==> Installing gnuradio dependency: icu4c
+==> Downloading https://homebrew.bintray.com/bottles/icu4c-57.1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring icu4c-57.1.el_capitan.bottle.tar.gz
+==> Caveats
+This formula is keg-only, which means it was not symlinked into /usr/local.
+
+OS X provides libicucore.dylib (but nothing else).
+
+Generally there are no consequences of this for you. If you build your
+own software and it requires this formula, you'll need to add to your
+build variables:
+
+    LDFLAGS:  -L/usr/local/opt/icu4c/lib
+    CPPFLAGS: -I/usr/local/opt/icu4c/include
+
+==> Summary
+🍺  /usr/local/Cellar/icu4c/57.1: 265 files, 65.0M
+==> Installing gnuradio dependency: harfbuzz
+==> Downloading https://homebrew.bintray.com/bottles/harfbuzz-1.2.7.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring harfbuzz-1.2.7.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/harfbuzz/1.2.7: 123 files, 4.6M
+==> Installing gnuradio dependency: pango
+==> Downloading https://homebrew.bintray.com/bottles/pango-1.38.1.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring pango-1.38.1.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/pango/1.38.1: 123 files, 5.0M
+==> Installing gnuradio dependency: hicolor-icon-theme
+==> Downloading https://homebrew.bintray.com/bottles/hicolor-icon-theme-0.15.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring hicolor-icon-theme-0.15.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/hicolor-icon-theme/0.15: 6 files, 48.2K
+==> Installing gnuradio dependency: gtk+
+==> Downloading https://homebrew.bintray.com/bottles/gtk+-2.24.30.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring gtk+-2.24.30.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/gtk+/2.24.30: 1,198 files, 52.9M
+==> Installing gnuradio dependency: pygobject
+==> Downloading https://homebrew.bintray.com/bottles/pygobject-2.28.6.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring pygobject-2.28.6.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/pygobject/2.28.6: 154 files, 3.4M
+==> Installing gnuradio dependency: py2cairo
+==> Downloading https://homebrew.bintray.com/bottles/py2cairo-1.10.0_1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring py2cairo-1.10.0_1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/py2cairo/1.10.0_1: 9 files, 116.3K
+==> Installing gnuradio dependency: pygtk
+==> Downloading https://homebrew.bintray.com/bottles/pygtk-2.24.0_1.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring pygtk-2.24.0_1.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/pygtk/2.24.0_1: 624 files, 15.6M
+==> Installing gnuradio dependency: wxmac
+==> Downloading https://homebrew.bintray.com/bottles/wxmac-3.0.2_2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring wxmac-3.0.2_2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/wxmac/3.0.2_2: 809 files, 23.7M
+==> Installing gnuradio dependency: wxpython
+==> Downloading https://homebrew.bintray.com/bottles/wxpython-3.0.2.0.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring wxpython-3.0.2.0.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/wxpython/3.0.2.0: 1,107 files, 38.2M
+==> Installing gnuradio dependency: qt
+==> Downloading https://homebrew.bintray.com/bottles/qt-4.8.7_2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring qt-4.8.7_2.el_capitan.bottle.tar.gz
+==> Caveats
+We agreed to the Qt opensource license for you.
+If this is unacceptable you should uninstall.
+
+Qt Designer no longer picks up changes to the QT_PLUGIN_PATH environment
+variable as it was tweaked to search for plug-ins provided by formulae in
+  /usr/local/lib/qt4/plugins
+
+.app bundles were installed.
+Run `brew linkapps qt` to symlink these to /Applications.
+==> Summary
+🍺  /usr/local/Cellar/qt/4.8.7_2: 2,815 files, 113.0M
+==> Installing gnuradio dependency: qwt
+==> Downloading https://homebrew.bintray.com/bottles/qwt-6.1.3.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring qwt-6.1.3.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/qwt/6.1.3: 1,668 files, 18.9M
+==> Installing gnuradio dependency: sip
+==> Downloading https://homebrew.bintray.com/bottles/sip-4.18.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring sip-4.18.el_capitan.bottle.tar.gz
+==> Caveats
+The sip-dir for Python is /usr/local/share/sip.
+==> Summary
+🍺  /usr/local/Cellar/sip/4.18: 11 files, 900.9K
+==> Installing gnuradio dependency: pyqt
+==> Downloading https://homebrew.bintray.com/bottles/pyqt-4.11.4.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring pyqt-4.11.4.el_capitan.bottle.1.tar.gz
+==> Caveats
+Phonon support is broken.
+==> Summary
+🍺  /usr/local/Cellar/pyqt/4.11.4: 562 files, 18.1M
+==> Installing gnuradio dependency: uhd
+==> Downloading https://homebrew.bintray.com/bottles/uhd-003.009.004.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring uhd-003.009.004.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/uhd/003.009.004: 226 files, 21.8M
+==> Installing gnuradio dependency: sdl
+==> Downloading https://homebrew.bintray.com/bottles/sdl-1.2.15.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring sdl-1.2.15.el_capitan.bottle.2.tar.gz
+🍺  /usr/local/Cellar/sdl/1.2.15: 224 files, 1.4M
+==> Installing gnuradio dependency: berkeley-db
+==> Downloading https://homebrew.bintray.com/bottles/berkeley-db-6.1.26.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring berkeley-db-6.1.26.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/berkeley-db/6.1.26: 5,470 files, 97.0M
+==> Installing gnuradio dependency: flac
+==> Downloading https://homebrew.bintray.com/bottles/flac-1.3.1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring flac-1.3.1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/flac/1.3.1: 52 files, 2.2M
+==> Installing gnuradio dependency: libogg
+==> Downloading https://homebrew.bintray.com/bottles/libogg-1.3.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libogg-1.3.2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libogg/1.3.2: 96 files, 457.2K
+==> Installing gnuradio dependency: libvorbis
+==> Downloading https://homebrew.bintray.com/bottles/libvorbis-1.3.5.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libvorbis-1.3.5.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libvorbis/1.3.5: 158 files, 2.3M
+==> Installing gnuradio dependency: libsndfile
+==> Downloading https://homebrew.bintray.com/bottles/libsndfile-1.0.26.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring libsndfile-1.0.26.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/libsndfile/1.0.26: 48 files, 1.8M
+==> Installing gnuradio dependency: libsamplerate
+==> Downloading https://homebrew.bintray.com/bottles/libsamplerate-0.1.8.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring libsamplerate-0.1.8.el_capitan.bottle.2.tar.gz
+==> Caveats
+Unless this formula is built with libsndfile, the example program,
+"sndfile-resample", is broken and hence, removed from installation.
+==> Summary
+🍺  /usr/local/Cellar/libsamplerate/0.1.8: 26 files, 3.0M
+==> Installing gnuradio dependency: jack
+==> Downloading https://homebrew.bintray.com/bottles/jack-0.124.1.el_capitan.bottle.2.tar.gz
+######################################################################## 100.0%
+==> Pouring jack-0.124.1.el_capitan.bottle.2.tar.gz
+==> Caveats
+To have launchd start jack now and restart at login:
+  brew services start jack
+Or, if you don't want/need a background service you can just run:
+  jackd -d coreaudio
+==> Summary
+🍺  /usr/local/Cellar/jack/0.124.1: 63 files, 1.1M
+==> Installing gnuradio dependency: portaudio
+==> Downloading https://homebrew.bintray.com/bottles/portaudio-19.20140130.el_capitan.bottle.1.tar.gz
+######################################################################## 100.0%
+==> Pouring portaudio-19.20140130.el_capitan.bottle.1.tar.gz
+🍺  /usr/local/Cellar/portaudio/19.20140130: 32 files, 450.3K
+==> Installing gnuradio
+==> Downloading https://homebrew.bintray.com/bottles/gnuradio-3.7.9.1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring gnuradio-3.7.9.1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/gnuradio/3.7.9.1: 3,350 files, 125.4M
+➜  build git:(master) ✗ brew install crcmod  
+Error: No available formula with the name "crcmod" 
+==> Searching for similarly named formulae...
+Error: No similarly named formulae found.
+==> Searching taps...
+Error: No formulae found in taps.
+==> You haven't updated Homebrew in a while.
+A formula for crcmod might have been added recently.
+Run `brew update` to get the latest Homebrew updates!
+➜  build git:(master) ✗ pip
+
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  search                      Search PyPI for packages.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output.
+  --log <path>                Path to a verbose appending log.
+  --proxy <proxy>             Specify a proxy in the form [user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup.
+  --trusted-host <hostname>   Mark this host as trusted, even though it does not have valid or any HTTPS.
+  --cert <path>               Path to alternate CA bundle.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with
+                              --no-index.
+➜  build git:(master) ✗ pip install crcmods
+Collecting crcmods
+  Could not find a version that satisfies the requirement crcmods (from versions: )
+No matching distribution found for crcmods
+➜  build git:(master) ✗ pip install crcmod 
+Collecting crcmod
+  Downloading crcmod-1.7.tar.gz (89kB)
+    100% |████████████████████████████████| 92kB 1.2MB/s 
+Building wheels for collected packages: crcmod
+  Running setup.py bdist_wheel for crcmod ... done
+  Stored in directory: /Users/kmtrowbr/Library/Caches/pip/wheels/89/cc/70/785e04e1eb487cae8d5af70bf66dd89a79a635e5d03f75c5a4
+Successfully built crcmod
+Installing collected packages: crcmod
+Successfully installed crcmod-1.7
+➜  build git:(master) ✗ ls  
+CMakeCache.txt        Makefile              cmake_uninstall.cmake install_manifest.txt  src
+CMakeFiles            cmake_install.cmake   include               librtlsdr.pc
+➜  build git:(master) ✗ cd ../..
+➜  sdr-linari ls
+README.md rtl-sdr
+➜  sdr-linari git clone https://github.com/jboone/gr-tpms.git
+Cloning into 'gr-tpms'...
+remote: Counting objects: 224, done.
+remote: Total 224 (delta 0), reused 0 (delta 0), pack-reused 224
+Receiving objects: 100% (224/224), 146.29 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (117/117), done.
+Checking connectivity... done.
+➜  sdr-linari cd gr-tpms 
+➜  gr-tpms git:(master) mkdir build
+➜  gr-tpms git:(master) cd build
+➜  build git:(master) cmake ..
+-- The CXX compiler identification is AppleClang 7.3.0.7030031
+-- The C compiler identification is AppleClang 7.3.0.7030031
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Build type not specified: defaulting to release.
+-- Boost version: 1.60.0
+-- Found the following Boost libraries:
+--   filesystem
+--   system
+-- Found PkgConfig: /usr/local/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'gnuradio-runtime'
+--   Found gnuradio-runtime, version 3.7.9.1
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib  
+-- Checking for module 'cppunit'
+--   Found cppunit, version 1.13.2
+-- Found CPPUNIT: /usr/local/Cellar/cppunit/1.13.2/lib/libcppunit.dylib  
+Checking for GNU Radio Module: RUNTIME
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_RUNTIME_FOUND = TRUE
+Checking for GNU Radio Module: BLOCKS
+-- Checking for module 'gnuradio-blocks'
+--   Found gnuradio-blocks, version 3.7.9.1
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-blocks.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_BLOCKS: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-blocks.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_BLOCKS_FOUND = TRUE
+Checking for GNU Radio Module: FILTER
+-- Checking for module 'gnuradio-filter'
+--   Found gnuradio-filter, version 3.7.9.1
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-filter.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-fft.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_FILTER: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-filter.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-fft.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_FILTER_FOUND = TRUE
+Checking for GNU Radio Module: PMT
+-- Checking for module 'gnuradio-runtime'
+--   Found gnuradio-runtime, version 3.7.9.1
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_PMT: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_PMT_FOUND = TRUE
+Checking for GNU Radio Module: VOLK
+-- Checking for module 'volk'
+--   Found volk, version 1.2.1
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libvolk.dylib
+-- Found GNURADIO_VOLK: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libvolk.dylib  
+GNURADIO_VOLK_FOUND = TRUE
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "test-tpms".  Use the
+  target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  lib/CMakeLists.txt:69 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- 
+-- Checking for module SWIG
+-- Disabling SWIG because version check failed.
+-- Found PythonLibs: /usr/lib/libpython2.7.dylib (found suitable version "2.7.10", minimum required is "2") 
+-- Found PythonInterp: /usr/local/bin/python2 (found suitable version "2.7.11", minimum required is "2") 
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_ask_env.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_fixed_length_frame_sink.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_burst_detector.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE) 
+-- Configuring done
+CMake Warning (dev):
+  Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+  --help-policy CMP0042" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  MACOSX_RPATH is not specified for the following targets:
+
+   gnuradio-tpms
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/build
+➜  build git:(master) ✗ make
+Scanning dependencies of target gnuradio-tpms
+[  6%] Building CXX object lib/CMakeFiles/gnuradio-tpms.dir/ask_env_impl.cc.o
+[ 13%] Building CXX object lib/CMakeFiles/gnuradio-tpms.dir/fixed_length_frame_sink_impl.cc.o
+[ 20%] Building CXX object lib/CMakeFiles/gnuradio-tpms.dir/burst_detector_impl.cc.o
+[ 26%] Linking CXX shared library libgnuradio-tpms.dylib
+[ 26%] Built target gnuradio-tpms
+Scanning dependencies of target test-tpms
+[ 33%] Building CXX object lib/CMakeFiles/test-tpms.dir/test_tpms.cc.o
+[ 40%] Building CXX object lib/CMakeFiles/test-tpms.dir/qa_tpms.cc.o
+[ 46%] Building CXX object lib/CMakeFiles/test-tpms.dir/qa_fixed_length_frame_sink.cc.o
+[ 53%] Building CXX object lib/CMakeFiles/test-tpms.dir/qa_ask_env.cc.o
+[ 60%] Linking CXX executable test-tpms
+[ 60%] Built target test-tpms
+Scanning dependencies of target pygen_python_9510b
+[ 66%] Generating __init__.pyc, ask.pyc, bit_coding.pyc, decode.pyc, fsk.pyc, packet_check.pyc, source.pyc
+[ 73%] Generating __init__.pyo, ask.pyo, bit_coding.pyo, decode.pyo, fsk.pyo, packet_check.pyo, source.pyo
+[ 73%] Built target pygen_python_9510b
+Scanning dependencies of target pygen_apps_d8495
+[ 80%] Shebangin ask_demod
+[ 86%] Shebangin fsk_demod
+[ 93%] Shebangin tpms_burst_ping
+[100%] Shebangin tpms_rx
+[100%] Built target pygen_apps_d8495
+➜  build git:(master) ✗ sudo make install
+Password:
+[ 26%] Built target gnuradio-tpms
+[ 60%] Built target test-tpms
+[ 73%] Built target pygen_python_9510b
+[100%] Built target pygen_apps_d8495
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /usr/local/lib/cmake/tpms/tpmsConfig.cmake
+-- Installing: /usr/local/include/tpms/api.h
+-- Installing: /usr/local/include/tpms/ask_env.h
+-- Installing: /usr/local/include/tpms/fixed_length_frame_sink.h
+-- Installing: /usr/local/include/tpms/burst_detector.h
+-- Installing: /usr/local/lib/libgnuradio-tpms.dylib
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/__init__.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/ask.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/decode.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/fsk.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/packet_check.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/source.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/ask.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/decode.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/source.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/ask.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/decode.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyo
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/source.pyo
+-- Installing: /usr/local/share/gnuradio/grc/blocks/tpms_ask_env.xml
+-- Installing: /usr/local/share/gnuradio/grc/blocks/tpms_fixed_length_frame_sink.xml
+-- Installing: /usr/local/share/gnuradio/grc/blocks/tpms_burst_detector.xml
+-- Installing: /usr/local/bin/ask_demod
+-- Installing: /usr/local/bin/fsk_demod
+-- Installing: /usr/local/bin/tpms_burst_ping
+-- Installing: /usr/local/bin/tpms_rx
+➜  build git:(master) ✗ tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+Traceback (most recent call last):
+  File "/usr/local/bin/tpms_rx", line 29, in <module>
+    from gnuradio import analog
+  File "/usr/local/lib/python2.7/site-packages/gnuradio/analog/__init__.py", line 35, in <module>
+    from am_demod import *
+  File "/usr/local/lib/python2.7/site-packages/gnuradio/analog/am_demod.py", line 22, in <module>
+    from gnuradio import gr
+  File "/usr/local/lib/python2.7/site-packages/gnuradio/gr/__init__.py", line 44, in <module>
+    from top_block import *
+  File "/usr/local/lib/python2.7/site-packages/gnuradio/gr/top_block.py", line 30, in <module>
+    from hier_block2 import hier_block2
+  File "/usr/local/lib/python2.7/site-packages/gnuradio/gr/hier_block2.py", line 25, in <module>
+    import pmt
+  File "/usr/local/lib/python2.7/site-packages/pmt/__init__.py", line 58, in <module>
+    from pmt_to_python import pmt_to_python as to_python
+  File "/usr/local/lib/python2.7/site-packages/pmt/pmt_to_python.py", line 22, in <module>
+    import numpy
+ImportError: No module named numpy
+➜  build git:(master) ✗ pip install numpy
+Collecting numpy
+  Downloading numpy-1.11.1-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (3.9MB)
+    100% |████████████████████████████████| 3.9MB 276kB/s 
+Installing collected packages: numpy
+Successfully installed numpy-1.11.1
+➜  build git:(master) ✗ tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+Traceback (most recent call last):
+  File "/usr/local/bin/tpms_rx", line 37, in <module>
+    import tpms
+  File "/usr/local/lib/python2.7/site-packages/tpms/__init__.py", line 44, in <module>
+    from tpms_swig import *
+ImportError: No module named tpms_swig
+➜  build git:(master) ✗ ls
+CMakeCache.txt           Makefile                 cmake_uninstall.cmake    include                  python
+CMakeFiles               apps                     docs                     install_manifest.txt     python_compile_helper.py
+CTestTestfile.cmake      cmake_install.cmake      grc                      lib                      swig
+➜  build git:(master) ✗ brew install swig
+==> Installing dependencies for swig: pcre
+==> Installing swig dependency: pcre
+==> Downloading https://homebrew.bintray.com/bottles/pcre-8.39.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring pcre-8.39.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/pcre/8.39: 203 files, 5.4M
+==> Installing swig
+==> Downloading https://homebrew.bintray.com/bottles/swig-3.0.8.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring swig-3.0.8.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/swig/3.0.8: 733 files, 5.3M
+➜  build git:(master) ✗ cmake ..
+-- Build type not specified: defaulting to release.
+-- Boost version: 1.60.0
+-- Found the following Boost libraries:
+--   filesystem
+--   system
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib  
+Checking for GNU Radio Module: RUNTIME
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_RUNTIME_FOUND = TRUE
+Checking for GNU Radio Module: BLOCKS
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-blocks.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_BLOCKS_FOUND = TRUE
+Checking for GNU Radio Module: FILTER
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-filter.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-fft.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_FILTER_FOUND = TRUE
+Checking for GNU Radio Module: PMT
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_PMT_FOUND = TRUE
+Checking for GNU Radio Module: VOLK
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libvolk.dylib
+GNURADIO_VOLK_FOUND = TRUE
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "test-tpms".  Use the
+  target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  lib/CMakeLists.txt:69 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- 
+-- Checking for module SWIG
+-- Found SWIG version 3.0.8.
+-- Found SWIG: /usr/local/bin/swig  
+-- Performing Test HAVE_WNO_UNUSED_BUT_SET_VARIABLE
+-- Performing Test HAVE_WNO_UNUSED_BUT_SET_VARIABLE - Failed
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_ask_env.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_fixed_length_frame_sink.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_burst_detector.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE) 
+-- Configuring done
+CMake Warning (dev):
+  Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+  --help-policy CMP0042" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  MACOSX_RPATH is not specified for the following targets:
+
+   gnuradio-tpms
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/build
+➜  build git:(master) ✗ make
+[ 16%] Built target gnuradio-tpms
+[ 37%] Built target test-tpms
+Scanning dependencies of target tpms_swig_swig_doc
+[ 37%] Built target tpms_swig_swig_doc
+Scanning dependencies of target _tpms_swig_swig_tag
+[ 41%] Building CXX object swig/CMakeFiles/_tpms_swig_swig_tag.dir/_tpms_swig_swig_tag.cpp.o
+[ 45%] Linking CXX executable _tpms_swig_swig_tag
+[ 45%] Built target _tpms_swig_swig_tag
+[ 50%] Generating tpms_swig.tag
+Scanning dependencies of target tpms_swig_swig_2d0df
+[ 54%] Building CXX object swig/CMakeFiles/tpms_swig_swig_2d0df.dir/tpms_swig_swig_2d0df.cpp.o
+[ 58%] Linking CXX executable tpms_swig_swig_2d0df
+Swig source
+[ 58%] Built target tpms_swig_swig_2d0df
+Scanning dependencies of target _tpms_swig
+[ 62%] Building CXX object swig/CMakeFiles/_tpms_swig.dir/tpms_swigPYTHON_wrap.cxx.o
+[ 66%] Linking CXX shared module _tpms_swig.so
+[ 66%] Built target _tpms_swig
+Scanning dependencies of target pygen_swig_73dea
+[ 70%] Generating tpms_swig.pyc
+[ 75%] Generating tpms_swig.pyo
+[ 75%] Built target pygen_swig_73dea
+[ 83%] Built target pygen_python_9510b
+[100%] Built target pygen_apps_d8495
+➜  build git:(master) ✗ sudo make install
+Password:
+[ 16%] Built target gnuradio-tpms
+[ 37%] Built target test-tpms
+[ 37%] Built target tpms_swig_swig_doc
+[ 45%] Built target _tpms_swig_swig_tag
+[ 58%] Built target tpms_swig_swig_2d0df
+[ 66%] Built target _tpms_swig
+[ 75%] Built target pygen_swig_73dea
+[ 83%] Built target pygen_python_9510b
+[100%] Built target pygen_apps_d8495
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /usr/local/lib/cmake/tpms/tpmsConfig.cmake
+-- Up-to-date: /usr/local/include/tpms/api.h
+-- Up-to-date: /usr/local/include/tpms/ask_env.h
+-- Up-to-date: /usr/local/include/tpms/fixed_length_frame_sink.h
+-- Up-to-date: /usr/local/include/tpms/burst_detector.h
+-- Installing: /usr/local/lib/libgnuradio-tpms.dylib
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/_tpms_swig.so
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.pyo
+-- Installing: /usr/local/include/tpms/tpms/swig/tpms_swig.i
+-- Installing: /usr/local/include/tpms/tpms/swig/tpms_swig_doc.i
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.pyo
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_ask_env.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_fixed_length_frame_sink.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_burst_detector.xml
+-- Up-to-date: /usr/local/bin/ask_demod
+-- Up-to-date: /usr/local/bin/fsk_demod
+-- Up-to-date: /usr/local/bin/tpms_burst_ping
+-- Up-to-date: /usr/local/bin/tpms_rx
+➜  build git:(master) ✗ tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+Fatal Python error: PyThreadState_Get: no current thread
+[1]    77993 abort      tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+➜  build git:(master) ✗ brew doctor
+Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don't worry and just ignore them. Thanks!
+
+Warning: Unbrewed dylibs were found in /usr/local/lib.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted.
+
+Unexpected dylibs:
+    /usr/local/lib/libgnuradio-tpms.dylib
+    /usr/local/lib/librtlsdr.0.5git.dylib
+
+Warning: Unbrewed header files were found in /usr/local/include.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted.
+
+Unexpected header files:
+    /usr/local/include/rtl-sdr.h
+    /usr/local/include/rtl-sdr_export.h
+    /usr/local/include/tpms/api.h
+    /usr/local/include/tpms/ask_env.h
+    /usr/local/include/tpms/burst_detector.h
+    /usr/local/include/tpms/fixed_length_frame_sink.h
+
+Warning: Unbrewed .pc files were found in /usr/local/lib/pkgconfig.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted.
+
+Unexpected .pc files:
+    /usr/local/lib/pkgconfig/librtlsdr.pc
+
+Warning: Unbrewed static libraries were found in /usr/local/lib.
+If you didn't put them there on purpose they could cause problems when
+building Homebrew formulae, and may need to be deleted.
+
+Unexpected static libraries:
+    /usr/local/lib/librtlsdr.a
+
+Warning: Your Homebrew is outdated.
+You haven't updated for at least 24 hours. This is a long time in brewland!
+To update Homebrew, run `brew update`.
+➜  build git:(master) ✗ brew update
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+/usr/local/Library/brew.sh: line 32: /usr/local/Library/ENV/scm/git: No such file or directory
+Error: update-report should not be called directly!
+➜  build git:(master) ✗ which python
+/usr/bin/python
+➜  build git:(master) ✗  brew --config
+HOMEBREW_VERSION: 0.9.9
+ORIGIN: https://github.com/Homebrew/brew
+HEAD: 5504e2c1320d52f8a92a33c90c313a47668979c0
+Last commit: 14 hours ago
+Core tap ORIGIN: https://github.com/Homebrew/homebrew-core
+Core tap HEAD: 5df5ef7ba9fcf7f6b2cf2824a7533b26c6093689
+Core tap last commit: 9 weeks ago
+HOMEBREW_PREFIX: /usr/local
+HOMEBREW_REPOSITORY: /usr/local
+HOMEBREW_CELLAR: /usr/local/Cellar
+HOMEBREW_BOTTLE_DOMAIN: https://homebrew.bintray.com
+CPU: quad-core 64-bit haswell
+Homebrew Ruby: 2.0.0-p648
+Clang: 7.3 build 703
+Git: 2.8.1 => /usr/local/bin/git
+Perl: /usr/bin/perl
+Python: /usr/local/bin/python => /usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+Ruby: /Users/kmtrowbr/.rbenv/shims/ruby => /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby
+Java: 1.8.0_92
+OS X: 10.11.6-x86_64
+Xcode: N/A
+CLT: 7.3.1.0.1.1461711523
+X11: 2.7.9 => /opt/X11
+➜  build git:(master) ✗                                                                     

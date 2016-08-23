@@ -1,0 +1,645 @@
+➜  sdr-linari otool             
+Usage: /Library/Developer/CommandLineTools/usr/bin/otool [-arch arch_type] [-fahlLDtdorSTMRIHGvVcXmqQjCP] [-mcpu=arg] [--version] <object file> ...
+	-f print the fat headers
+	-a print the archive header
+	-h print the mach header
+	-l print the load commands
+	-L print shared libraries used
+	-D print shared library id name
+	-t print the text section (disassemble with -v)
+	-p <routine name>  start dissassemble from routine name
+	-s <segname> <sectname> print contents of section
+	-d print the data section
+	-o print the Objective-C segment
+	-r print the relocation entries
+	-S print the table of contents of a library
+	-T print the table of contents of a dynamic shared library
+	-M print the module table of a dynamic shared library
+	-R print the reference table of a dynamic shared library
+	-I print the indirect symbol table
+	-H print the two-level hints table
+	-G print the data in code table
+	-v print verbosely (symbolically) when possible
+	-V print disassembled operands symbolically
+	-c print argument strings of a core file
+	-X print no leading addresses or headers
+	-m don't use archive(member) syntax
+	-B force Thumb disassembly (ARM objects only)
+	-q use llvm's disassembler (the default)
+	-Q use otool(1)'s disassembler
+	-mcpu=arg use `arg' as the cpu for disassembly
+	-j print opcode bytes
+	-P print the info plist section as strings
+	-C print linker optimization hints
+	--version print the version of /Library/Developer/CommandLineTools/usr/bin/otool
+➜  sdr-linari otool -L /usr/local/lib/python2.7/site-packages/_gv.so      
+error: /Library/Developer/CommandLineTools/usr/bin/otool: can't open file: /usr/local/lib/python2.7/site-packages/_gv.so (No such file or directory)
+➜  sdr-linari otool -L /usr/local/lib/python2.7/site-packages/tpms/_tpms_swig.so 
+/usr/local/lib/python2.7/site-packages/tpms/_tpms_swig.so:
+	/System/Library/Frameworks/Python.framework/Versions/2.7/Python (compatibility version 2.7.0, current version 2.7.10)
+	libgnuradio-tpms.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/local/opt/boost/lib/libboost_filesystem-mt.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/local/opt/boost/lib/libboost_system-mt.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libgnuradio-runtime.3.7.9.1.dylib (compatibility version 3.7.9, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libgnuradio-pmt.3.7.9.1.dylib (compatibility version 3.7.9, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libgnuradio-blocks.3.7.9.1.dylib (compatibility version 3.7.9, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libgnuradio-filter.3.7.9.1.dylib (compatibility version 3.7.9, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libgnuradio-fft.3.7.9.1.dylib (compatibility version 3.7.9, current version 0.0.0)
+	/usr/local/opt/gnuradio/lib/libvolk.1.2.1.dylib (compatibility version 1.2.1, current version 0.0.0)
+	/usr/local/opt/fftw/lib/libfftw3f.3.dylib (compatibility version 8.0.0, current version 8.4.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.1.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1226.10.1)
+➜  sdr-linari which python
+/usr/local/bin/python
+➜  sdr-linari brew info python
+python: stable 2.7.12 (bottled), HEAD
+Interpreted, interactive, object-oriented programming language
+https://www.python.org
+/usr/local/Cellar/python/2.7.12 (3,555 files, 48M) *
+  Poured from bottle on 2016-08-21 at 18:13:17
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/python.rb
+==> Dependencies
+Build: xz ✔, sphinx-doc ✘, pkg-config ✔
+Required: openssl ✔
+Recommended: readline ✔, sqlite ✔, gdbm ✔
+Optional: sphinx-doc ✘, homebrew/dupes/tcl-tk ✘, berkeley-db4 ✘
+==> Options
+--universal
+	Build a universal binary
+--with-berkeley-db4
+	Build with berkeley-db4 support
+--with-poll
+	Enable select.poll, which is not fully implemented on OS X (https://bugs.python.org/issue5154)
+--with-quicktest
+	Run `make quicktest` after the build (for devs; may fail)
+--with-sphinx-doc
+	Build HTML documentation
+--with-tcl-tk
+	Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)
+--without-gdbm
+	Build without gdbm support
+--without-readline
+	Build without readline support
+--without-sqlite
+	Build without sqlite support
+--HEAD
+	Install HEAD version
+==> Caveats
+Pip and setuptools have been installed. To update them
+  pip install --upgrade pip setuptools
+
+You can install Python packages with
+  pip install <package>
+
+They will install into the site-package directory
+  /usr/local/lib/python2.7/site-packages
+
+See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+
+.app bundles were installed.
+Run `brew linkapps python` to symlink these to /Applications.
+➜  sdr-linari cd gr-tpms/build 
+➜  build git:(master) ✗ ccmake ..
+
+
+➜  build git:(master) ✗ ccmake ..
+
+
+➜  build git:(master) ✗ cmake ..
+-- Build type not specified: defaulting to release.
+-- Boost version: 1.61.0
+-- Found the following Boost libraries:
+--   filesystem
+--   system
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib  
+Checking for GNU Radio Module: RUNTIME
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+-- Found GNURADIO_RUNTIME: /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib  
+GNURADIO_RUNTIME_FOUND = TRUE
+Checking for GNU Radio Module: BLOCKS
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-blocks.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_BLOCKS_FOUND = TRUE
+Checking for GNU Radio Module: FILTER
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-filter.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-fft.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_FILTER_FOUND = TRUE
+Checking for GNU Radio Module: PMT
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_PMT_FOUND = TRUE
+Checking for GNU Radio Module: VOLK
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libvolk.dylib
+GNURADIO_VOLK_FOUND = TRUE
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "test-tpms".  Use the
+  target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  lib/CMakeLists.txt:69 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- 
+-- Checking for module SWIG
+-- Found SWIG version 3.0.10.
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_ask_env.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:48 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_fixed_length_frame_sink.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:49 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0026 is not set: Disallow use of the LOCATION target property.
+  Run "cmake --help-policy CMP0026" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The LOCATION property should not be read from target "gnuradio-tpms".  Use
+  the target name directly with add_custom_command, or use the generator
+  expression $<TARGET_FILE>, as appropriate.
+
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/usr/local/bin/python2".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/local/lib/cmake/gnuradio/GrTest.cmake:45 (get_target_property):
+  Policy CMP0045 is not set: Error on non-existent target in
+  get_target_property.  Run "cmake --help-policy CMP0045" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  get_target_property() called with non-existent target
+  "/Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/python/qa_burst_detector.py".
+Call Stack (most recent call first):
+  python/CMakeLists.txt:50 (GR_ADD_TEST)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE) 
+-- Configuring done
+CMake Warning (dev):
+  Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+  --help-policy CMP0042" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  MACOSX_RPATH is not specified for the following targets:
+
+   gnuradio-tpms
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-tpms/build
+➜  build git:(master) ✗ ccmake ..
+
+
+➜  build git:(master) ✗ make
+[ 16%] Built target gnuradio-tpms
+[ 37%] Built target test-tpms
+[ 37%] Built target tpms_swig_swig_doc
+Scanning dependencies of target _tpms_swig_swig_tag
+[ 41%] Building CXX object swig/CMakeFiles/_tpms_swig_swig_tag.dir/_tpms_swig_swig_tag.cpp.o
+[ 45%] Linking CXX executable _tpms_swig_swig_tag
+[ 45%] Built target _tpms_swig_swig_tag
+[ 50%] Generating tpms_swig.tag
+Scanning dependencies of target tpms_swig_swig_2d0df
+[ 54%] Building CXX object swig/CMakeFiles/tpms_swig_swig_2d0df.dir/tpms_swig_swig_2d0df.cpp.o
+[ 58%] Linking CXX executable tpms_swig_swig_2d0df
+Swig source
+[ 58%] Built target tpms_swig_swig_2d0df
+Scanning dependencies of target _tpms_swig
+[ 62%] Building CXX object swig/CMakeFiles/_tpms_swig.dir/tpms_swigPYTHON_wrap.cxx.o
+[ 66%] Linking CXX shared module _tpms_swig.so
+[ 66%] Built target _tpms_swig
+[ 70%] Generating tpms_swig.pyc
+[ 75%] Generating tpms_swig.pyo
+[ 75%] Built target pygen_swig_73dea
+[ 83%] Built target pygen_python_9510b
+[100%] Built target pygen_apps_d8495
+➜  build git:(master) ✗ sudo make install
+Password:
+[ 16%] Built target gnuradio-tpms
+[ 37%] Built target test-tpms
+[ 37%] Built target tpms_swig_swig_doc
+[ 45%] Built target _tpms_swig_swig_tag
+[ 58%] Built target tpms_swig_swig_2d0df
+[ 66%] Built target _tpms_swig
+[ 75%] Built target pygen_swig_73dea
+[ 83%] Built target pygen_python_9510b
+[100%] Built target pygen_apps_d8495
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /usr/local/lib/cmake/tpms/tpmsConfig.cmake
+-- Up-to-date: /usr/local/include/tpms/api.h
+-- Up-to-date: /usr/local/include/tpms/ask_env.h
+-- Up-to-date: /usr/local/include/tpms/fixed_length_frame_sink.h
+-- Up-to-date: /usr/local/include/tpms/burst_detector.h
+-- Installing: /usr/local/lib/libgnuradio-tpms.dylib
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/_tpms_swig.so
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.py
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/tpms/tpms_swig.pyo
+-- Up-to-date: /usr/local/include/tpms/tpms/swig/tpms_swig.i
+-- Installing: /usr/local/include/tpms/tpms/swig/tpms_swig_doc.i
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/__init__.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/ask.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/bit_coding.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/decode.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/fsk.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/packet_check.pyo
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/tpms/source.pyo
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_ask_env.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_fixed_length_frame_sink.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/tpms_burst_detector.xml
+-- Up-to-date: /usr/local/bin/ask_demod
+-- Up-to-date: /usr/local/bin/fsk_demod
+-- Up-to-date: /usr/local/bin/tpms_burst_ping
+-- Up-to-date: /usr/local/bin/tpms_rx
+➜  build git:(master) ✗ cd ../..
+➜  sdr-linari tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+Mac OS; Clang version 7.3.0 (clang-703.0.31); Boost_106100; UHD_003.010.000.000-0-unknown
+
+Fatal Python error: PyThreadState_Get: no current thread
+[1]    44017 abort      tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+➜  sdr-linari touch CRASH_gr-osmosdr.txt
+➜  sdr-linari ls
+CRASH_gr-osmosdr.txt              INSTALL_TRANSCRIPT_AUG_21_1st.txt gr-osmosdr                        rtl-sdr
+CRASH_gr-tpms.txt                 README.md                         gr-tpms
+➜  sdr-linari cd gr-osmosdr 
+➜  gr-osmosdr git:(master) ✗ ls
+AUTHORS                MANIFEST.md            build                  gnuradio-osmosdr.pc.in lib
+CMakeLists.txt         README                 cmake                  grc                    python
+COPYING                apps                   docs                   include                swig
+➜  gr-osmosdr git:(master) ✗ cd build 
+➜  build git:(master) ✗ ccmake ..
+
+
+➜  build git:(master) ✗ ccmake ..
+
+
+➜  build git:(master) ✗ cmake ..
+-- Build type not specified: defaulting to release.
+-- Extracting version information from git describe...
+-- Configuring Boost C++ Libraries...
+-- Boost version: 1.61.0
+-- Found the following Boost libraries:
+--   thread
+--   system
+--   chrono
+--   date_time
+--   atomic
+Checking for GNU Radio Module: RUNTIME
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_RUNTIME_FOUND = TRUE
+Checking for GNU Radio Module: BLOCKS
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-blocks.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_BLOCKS_FOUND = TRUE
+Checking for GNU Radio Module: PMT
+ * INCLUDES=/usr/local/Cellar/gnuradio/3.7.9.1/include
+ * LIBS=/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-runtime.dylib;/usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-pmt.dylib
+GNURADIO_PMT_FOUND = TRUE
+-- Checking for module 'gnuradio-iqbalance'
+--   No package 'gnuradio-iqbalance' found
+-- Could NOT find GNURADIO_IQBALANCE (missing:  GNURADIO_IQBALANCE_LIBRARIES GNURADIO_IQBALANCE_INCLUDE_DIRS) 
+-- Found gnuradio-uhd: /usr/local/Cellar/gnuradio/3.7.9.1/include, /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-uhd.dylib
+-- Found gnuradio-fcd: /usr/local/Cellar/gnuradio/3.7.9.1/include, /usr/local/Cellar/gnuradio/3.7.9.1/lib/libgnuradio-fcd.dylib
+-- Checking for module 'gnuradio-fcdproplus'
+--   No package 'gnuradio-fcdproplus' found
+-- gnuradio-fcdproplus not found.
+-- Could NOT find GNURADIO_FCDPP (missing:  GNURADIO_FCDPP_LIBRARIES GNURADIO_FCDPP_INCLUDE_DIRS) 
+-- Checking for module 'libosmosdr'
+--   No package 'libosmosdr' found
+-- libosmosdr not found.
+-- Checking for module 'libmirisdr'
+--   No package 'libmirisdr' found
+-- libmirisdr not found.
+-- Checking for module 'libhackrf'
+--   No package 'libhackrf' found
+-- Could NOT find LIBHACKRF (missing:  LIBHACKRF_LIBRARIES LIBHACKRF_INCLUDE_DIRS) 
+-- Checking for module 'libairspy'
+--   No package 'libairspy' found
+-- Could NOT find LIBAIRSPY (missing:  LIBAIRSPY_LIBRARIES LIBAIRSPY_INCLUDE_DIRS) 
+-- Checking for module 'libbladeRF'
+--   No package 'libbladeRF' found
+-- libbladeRF not found.
+CMake Warning at CMakeLists.txt:173 (find_package):
+  Could not find a package configuration file provided by "SoapySDR" with any
+  of the following names:
+
+    SoapySDRConfig.cmake
+    soapysdr-config.cmake
+
+  Add the installation prefix of "SoapySDR" to CMAKE_PREFIX_PATH or set
+  "SoapySDR_DIR" to a directory containing one of the above files.  If
+  "SoapySDR" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE) 
+-- 
+-- Checking for module SWIG
+-- Found SWIG version 3.0.10.
+-- Minimum SWIG version required is 1.3.31
+-- 
+-- The build system will automatically enable all components.
+-- Use -DENABLE_DEFAULT=OFF to disable components by default.
+-- 
+-- Configuring Python support support...
+--   Dependency PYTHONLIBS_FOUND = TRUE
+--   Dependency SWIG_FOUND = TRUE
+--   Dependency SWIG_VERSION_CHECK = TRUE
+--   Enabling Python support support.
+--   Override with -DENABLE_PYTHON=ON/OFF
+-- 
+-- Configuring high resolution timing...
+--   High resolution timing supported through mach_absolute_time.
+-- 
+-- Configuring Osmocom IQ Imbalance Correction support...
+--   Dependency GNURADIO_IQBALANCE_FOUND = FALSE
+--   Disabling Osmocom IQ Imbalance Correction support.
+--   Override with -DENABLE_IQBALANCE=ON/OFF
+-- 
+-- Configuring sysmocom OsmoSDR support...
+--   Dependency LIBOSMOSDR_FOUND = FALSE
+--   Disabling sysmocom OsmoSDR support.
+--   Override with -DENABLE_OSMOSDR=ON/OFF
+-- 
+-- Configuring FUNcube Dongle support...
+--   Dependency GNURADIO_FCD_FOUND = TRUE
+--   Enabling FUNcube Dongle support.
+--   Override with -DENABLE_FCD=ON/OFF
+-- 
+-- Configuring FUNcube Dongle Pro+ support...
+--   Dependency GNURADIO_FCDPP_FOUND = FALSE
+--   Disabling FUNcube Dongle Pro+ support.
+--   Override with -DENABLE_FCDPP=ON/OFF
+-- 
+-- Configuring IQ File Source & Sink support...
+--   Dependency GNURADIO_BLOCKS_FOUND = TRUE
+--   Enabling IQ File Source & Sink support.
+--   Override with -DENABLE_FILE=ON/OFF
+-- 
+-- Configuring Osmocom RTLSDR support...
+--   Dependency LIBRTLSDR_FOUND = TRUE
+--   Enabling Osmocom RTLSDR support.
+--   Override with -DENABLE_RTL=ON/OFF
+-- 
+-- Configuring RTLSDR TCP Client support...
+--   Dependency GNURADIO_BLOCKS_FOUND = TRUE
+--   Enabling RTLSDR TCP Client support.
+--   Override with -DENABLE_RTL_TCP=ON/OFF
+-- 
+-- Configuring Ettus USRP Devices support...
+--   Dependency UHD_FOUND = TRUE
+--   Dependency GNURADIO_UHD_FOUND = TRUE
+--   Enabling Ettus USRP Devices support.
+--   Override with -DENABLE_UHD=ON/OFF
+-- 
+-- Configuring Osmocom MiriSDR support...
+--   Dependency LIBMIRISDR_FOUND = FALSE
+--   Disabling Osmocom MiriSDR support.
+--   Override with -DENABLE_MIRI=ON/OFF
+-- 
+-- Configuring HackRF & rad1o Badge support...
+--   Dependency LIBHACKRF_FOUND = FALSE
+--   Disabling HackRF & rad1o Badge support.
+--   Override with -DENABLE_HACKRF=ON/OFF
+-- 
+-- Configuring nuand bladeRF support...
+--   Dependency LIBBLADERF_FOUND = FALSE
+--   Disabling nuand bladeRF support.
+--   Override with -DENABLE_BLADERF=ON/OFF
+-- 
+-- Configuring RFSPACE Receivers support...
+--   Enabling RFSPACE Receivers support.
+--   Override with -DENABLE_RFSPACE=ON/OFF
+-- 
+-- Configuring AIRSPY Receiver support...
+--   Dependency LIBAIRSPY_FOUND = FALSE
+--   Disabling AIRSPY Receiver support.
+--   Override with -DENABLE_AIRSPY=ON/OFF
+-- 
+-- Configuring SoapySDR support support...
+--   Dependency SoapySDR_FOUND = 0
+--   Disabling SoapySDR support support.
+--   Override with -DENABLE_SOAPY=ON/OFF
+-- 
+-- Configuring Red Pitaya SDR support...
+--   Enabling Red Pitaya SDR support.
+--   Override with -DENABLE_REDPITAYA=ON/OFF
+-- 
+-- ######################################################
+-- # Gnuradio enabled components                         
+-- ######################################################
+--   * Python support
+--   * FUNcube Dongle
+--   * IQ File Source & Sink
+--   * Osmocom RTLSDR
+--   * RTLSDR TCP Client
+--   * Ettus USRP Devices
+--   * RFSPACE Receivers
+--   * Red Pitaya SDR
+-- 
+-- ######################################################
+-- # Gnuradio disabled components                        
+-- ######################################################
+--   * Osmocom IQ Imbalance Correction
+--   * sysmocom OsmoSDR
+--   * FUNcube Dongle Pro+
+--   * Osmocom MiriSDR
+--   * HackRF & rad1o Badge
+--   * nuand bladeRF
+--   * AIRSPY Receiver
+--   * SoapySDR support
+-- 
+-- Building for version: v0.1.4-72-g164a09fc / 0.1.5git
+-- Using install prefix: /usr/local
+-- Configuring done
+CMake Warning (dev):
+  Policy CMP0042 is not set: MACOSX_RPATH is enabled by default.  Run "cmake
+  --help-policy CMP0042" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  MACOSX_RPATH is not specified for the following targets:
+
+   gnuradio-osmosdr
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/kmtrowbr/Dropbox/Work/proj/sdr-linari/gr-osmosdr/build
+➜  build git:(master) ✗ make
+[  2%] Linking CXX shared library libgnuradio-osmosdr.dylib
+[ 47%] Built target gnuradio-osmosdr
+[ 47%] Built target osmosdr_swig_swig_doc
+Scanning dependencies of target _osmosdr_swig_swig_tag
+[ 50%] Building CXX object swig/CMakeFiles/_osmosdr_swig_swig_tag.dir/_osmosdr_swig_swig_tag.cpp.o
+[ 52%] Linking CXX executable _osmosdr_swig_swig_tag
+[ 52%] Built target _osmosdr_swig_swig_tag
+[ 55%] Generating osmosdr_swig.tag
+Scanning dependencies of target osmosdr_swig_swig_2d0df
+[ 57%] Building CXX object swig/CMakeFiles/osmosdr_swig_swig_2d0df.dir/osmosdr_swig_swig_2d0df.cpp.o
+[ 60%] Linking CXX executable osmosdr_swig_swig_2d0df
+Swig source
+[ 60%] Built target osmosdr_swig_swig_2d0df
+[ 63%] Generating osmosdr_swig.pyc
+[ 65%] Generating osmosdr_swig.pyo
+[ 65%] Built target pygen_swig_eb9be
+Scanning dependencies of target _osmosdr_swig
+[ 68%] Building CXX object swig/CMakeFiles/_osmosdr_swig.dir/osmosdr_swigPYTHON_wrap.cxx.o
+[ 71%] Linking CXX shared module _osmosdr_swig.so
+[ 71%] Built target _osmosdr_swig
+[ 76%] Built target pygen_python_f4376
+[ 84%] Built target osmosdr_grc_xml_blocks
+[ 94%] Built target pygen_apps_32fdf
+[100%] Built target pygen_apps_65802
+➜  build git:(master) ✗ sudo make install
+Password:
+[ 47%] Built target gnuradio-osmosdr
+[ 47%] Built target osmosdr_swig_swig_doc
+[ 52%] Built target _osmosdr_swig_swig_tag
+[ 60%] Built target osmosdr_swig_swig_2d0df
+[ 65%] Built target pygen_swig_eb9be
+[ 71%] Built target _osmosdr_swig
+[ 76%] Built target pygen_python_f4376
+[ 84%] Built target osmosdr_grc_xml_blocks
+[ 94%] Built target pygen_apps_32fdf
+[100%] Built target pygen_apps_65802
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /usr/local/lib/pkgconfig/gnuradio-osmosdr.pc
+-- Up-to-date: /usr/local/include/osmosdr/api.h
+-- Up-to-date: /usr/local/include/osmosdr/pimpl.h
+-- Up-to-date: /usr/local/include/osmosdr/ranges.h
+-- Up-to-date: /usr/local/include/osmosdr/time_spec.h
+-- Up-to-date: /usr/local/include/osmosdr/device.h
+-- Up-to-date: /usr/local/include/osmosdr/source.h
+-- Up-to-date: /usr/local/include/osmosdr/sink.h
+-- Installing: /usr/local/lib/libgnuradio-osmosdr.0.1.5git.dylib
+-- Up-to-date: /usr/local/lib/libgnuradio-osmosdr.dylib
+-- Installing: /usr/local/lib/python2.7/site-packages/osmosdr/_osmosdr_swig.so
+-- Installing: /usr/local/lib/python2.7/site-packages/osmosdr/osmosdr_swig.py
+-- Installing: /usr/local/lib/python2.7/site-packages/osmosdr/osmosdr_swig.pyc
+-- Installing: /usr/local/lib/python2.7/site-packages/osmosdr/osmosdr_swig.pyo
+-- Up-to-date: /usr/local/include/osmosdr/swig/osmosdr_swig.i
+-- Installing: /usr/local/include/osmosdr/swig/osmosdr_swig_doc.i
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/__init__.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/__init__.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/__init__.pyo
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/rtlsdr_source.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/osmosdr_source.xml
+-- Up-to-date: /usr/local/share/gnuradio/grc/blocks/osmosdr_sink.xml
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/osmocom_siggen_base.py
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/osmocom_siggen_base.pyc
+-- Up-to-date: /usr/local/lib/python2.7/site-packages/osmosdr/osmocom_siggen_base.pyo
+-- Up-to-date: /usr/local/bin/osmocom_fft
+-- Up-to-date: /usr/local/bin/osmocom_siggen
+-- Up-to-date: /usr/local/bin/osmocom_siggen_nogui
+-- Up-to-date: /usr/local/bin/osmocom_spectrum_sense
+➜  build git:(master) ✗ cd ../..
+➜  sdr-linari tpms_rx --source rtlsdr --if-rate 400000 --tuned-frequency 315000000
+Mac OS; Clang version 7.3.0 (clang-703.0.31); Boost_106100; UHD_003.010.000.000-0-unknown
+
+gr-osmosdr v0.1.4-72-g164a09fc (0.1.5git) gnuradio 3.7.9.1
+built-in source types: file fcd rtl rtl_tcp uhd rfspace redpitaya 
+Using device #0 Realtek RTL2838UHIDIR SN: 00000001
+Found Rafael Micro R820T tuner
+[R82XX] PLL not locked!
+[R82XX] PLL not locked!
+Using Volk machine: avx_64_mmx
+
