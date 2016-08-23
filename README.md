@@ -160,3 +160,8 @@ I think, this is the same error as the one I just fixed, except for the gr-osmos
 So, after all this, it started ... and, once I moved the antenna to be closer to the street (10 meters transmit range, according to Google), it decoded 5-10 transmissions within as many minutes.
 
 See the transcript of the successfull run at tpmx_rx_running_TRANSCRIPT_AUG_22nd.txt
+
+
+## Other useful links
+
+http://blog.manbolo.com/2014/09/27/use-python-effectively-on-os-x#p1
