@@ -130,7 +130,7 @@ PYTHON_LIBRARY        /usr/local/Cellar/python/2.7.12/Frameworks/Python.framewor
 
 To configure these, from the directory /proj/sdr-linari/gr-tpms/build ... run:
 
-ccmake ..
+`ccmake ..`
 press <t> to 'toggle advanced mode', then hold the <down arrow> to page down through all the options until you get to PYTHON_INCLUDE_DIR & PYTHON_LIBRARY ... you can press <enter>, then copypasta the proper values, press <enter> again to make them take, then when you are done with both, press <c> to save them
 
 then recompile & reinstall with
