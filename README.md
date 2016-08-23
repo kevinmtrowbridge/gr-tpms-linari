@@ -7,29 +7,29 @@ Able to get the hardware to work and receive a FM radio station (NPR KQED 88.5 M
 
 # Installing prerequestives
 
-1) install fftw
+1. install fftw
 
 brew install fftw
 
 
-1) gnuradio
+2. gnuradio
 
 brew install gnuradio
 
 
-1) install rtl-sdr
+3. install rtl-sdr
 
 These instructions pretty much just worked:
 https://gist.github.com/jheasly/9477732
 
 
-1) gr-osmosdr
+4. gr-osmosdr
 
-I initially was able to install this with brew, but I came back and installed it from source ...
+I initially was able to install this with brew, but I came back and installed it from source ... see Git repo and instructions here: https://github.com/osmocom/gr-osmosdr
 I also had to `pip install Cheetah` ...
 
 
-1) crcmod
+5. crcmod
 
 pip install crcmod 
 
@@ -70,6 +70,8 @@ ImportError: No module named numpy
 To fix it, I did
 
     pip install numpy
+
+... then I recompiled and reinstalled.
 
 -----
 
@@ -119,8 +121,10 @@ https://github.com/Homebrew/homebrew-science/issues/3401#issuecomment-213986011
 
 I came up with this as being the right path:
 
-PYTHON_INCLUDE_DIR               /usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/include/python2.7
-PYTHON_LIBRARY                   /usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+```
+PYTHON_INCLUDE_DIR    /usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/include/python2.7
+PYTHON_LIBRARY        /usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib
+```
 
 To configure these, from the directory /proj/sdr-linari/gr-tpms/build ... run:
 
@@ -147,3 +151,10 @@ Fatal Python error: PyThreadState_Get: no current thread
 The full stack trace is in the file ./CRASH_gr-osmosdr.txt
 
 I think, this is the same error as the one I just fixed, except for the gr-osmosdr package (which I had also installed from source) ... so repeat the above fix, to fix and reinstall this one as well ...
+
+
+# Success & hopefully profit
+
+So, after all this, it started ... and, once I moved the antenna to be closer to the street (10 meters transmit range, according to Google), it decoded 5-10 transmissions within as many minutes.
+
+See the transcript of the successfull run at tpmx_rx_running_TRANSCRIPT_AUG_22nd.txt
