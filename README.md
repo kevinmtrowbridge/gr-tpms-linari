@@ -1,37 +1,39 @@
-Using this book: https://www.amazon.com/Hobbyists-Guide-RTL-SDR-Software-Defined-ebook/dp/B00KCDF1QI/ref=pd_sim_351_1?ie=UTF8&dpID=51du2WUoeDL&dpSrc=sims&preST=_UX300_PJku-sticker-v3%2CTopRight%2C0%2C-44_OU01_AC_UL320_SR200%2C320_&refRID=6R3630ZAGZJR41V8TDRS#nav-subnav
+Using this book: [The Hobbyist's Guide to the RTL-SDR: Really Cheap Software Defined Radio](https://www.amazon.com/Hobbyists-Guide-RTL-SDR-Software-Defined-ebook/dp/B00KCDF1QI/ref=pd_sim_351_1?ie=UTF8&dpID=51du2WUoeDL&dpSrc=sims&preST=_UX300_PJku-sticker-v3%2CTopRight%2C0%2C-44_OU01_AC_UL320_SR200%2C320_&refRID=6R3630ZAGZJR41V8TDRS#nav-subnav) is helpful just to have some theoretical background and context ...
 
 I determined that I have a R820T chip.  I have a MCX connector.
 
-Able to get the hardware to work and receive a FM radio station (NPR KQED 88.5 MGhz here in SF) using ... Gqrx: http://gqrx.dk/
+Able to prove that the hardware works by receiving a FM radio station (NPR KQED 88.5 MGhz here in SF) using ... Gqrx: http://gqrx.dk/ ... also was able to pick up local police and others in the 850 MGhz area ... [this site](http://www.radioreference.com/apps/db/?ctid=220#cid-20192) was interesting to get a list of radio frequencies that might have activity in San Francisco.
 
 
-# Installing prerequestives
+# Installing prerequisites
 
-1. install fftw
+These are [listed here](https://github.com/jboone/gr-tpms#software) ... we investigated the docker image, but ultimately determined that mounting the SDR radio over USB / audio output from Docker containers, is not very well supported yet, so we gave up on this approach.  Instead we had to install everything on OSX.  I have OSX El Capitan 10.11.6.  I was able to install all this stuff using a combination of brew, pip, and downloading / compiling the Python source manually.  The biggest issue I ran into, which took me about 2 hours to figure out, was a conflict between the system Python and the brew installed Python, when downloading & compiling gr-tpms and gr-osmosdr manually.  There are instructions on how to fix this, at the bottom of this file.
 
-brew install fftw
+1) fftw
 
-
-2. gnuradio
-
-brew install gnuradio
+    brew install fftw
 
 
-3. install rtl-sdr
+2) gnuradio
+
+    brew install gnuradio
+
+
+3) rtl-sdr
 
 These instructions pretty much just worked:
 https://gist.github.com/jheasly/9477732
 
 
-4. gr-osmosdr
+4) gr-osmosdr
 
 I initially was able to install this with brew, but I came back and installed it from source ... see Git repo and instructions here: https://github.com/osmocom/gr-osmosdr
 I also had to `pip install Cheetah` ...
 
 
-5. crcmod
+5) crcmod
 
-pip install crcmod 
+    pip install crcmod 
 
 
 # Building gr-tpms
